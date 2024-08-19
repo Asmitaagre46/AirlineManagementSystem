@@ -9,7 +9,7 @@ import static com.mongodb.client.model.Filters.*;
 
 public class Login extends JFrame implements ActionListener {
 
-    JButton close, login, signup;
+    JButton forgotPassword, login, reset;
     JTextField tfusername;
     JPasswordField tfpassword;
 
@@ -38,20 +38,20 @@ public class Login extends JFrame implements ActionListener {
         tfpassword.setBounds(130, 75, 200, 20);
         add(tfpassword);
 
-        signup = new JButton("Sign Up");
-        signup.setBounds(75, 115, 100, 20);
-        signup.addActionListener(this);
-        add(signup);
+        reset = new JButton("Reset");
+        reset.setBounds(75, 115, 100, 20);
+        reset.addActionListener(this);
+        add(reset);
 
         login = new JButton("Login");
         login.setBounds(195, 115, 100, 20);
         login.addActionListener(this);
         add(login);
 
-        close = new JButton("Close");
-        close.setBounds(135, 155, 100, 20);
-        close.addActionListener(this);
-        add(close);
+        forgotPassword = new JButton("Forgot Password!");
+        forgotPassword.setBounds(115, 155, 150, 20);
+        forgotPassword.addActionListener(this);
+        add(forgotPassword);
 
         setTitle("Login");
         setSize(400, 250);
@@ -85,11 +85,11 @@ public class Login extends JFrame implements ActionListener {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else if (ae.getSource() == close) {
-            setVisible(false);
-        } else if (ae.getSource() == signup) {
-//            new SignUp();
-            setVisible(false);
+        } else if (ae.getSource() == forgotPassword) {
+            new ForgotPassword();
+        } else if (ae.getSource() == reset) {
+            tfusername.setText("");
+            tfpassword.setText("");
         }
     }
 
