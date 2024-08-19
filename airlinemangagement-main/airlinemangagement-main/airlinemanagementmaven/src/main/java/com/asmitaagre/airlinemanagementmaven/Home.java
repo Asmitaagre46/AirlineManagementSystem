@@ -1,3 +1,4 @@
+
 package com.asmitaagre.airlinemanagementmaven;
 
 import java.awt.*;
@@ -25,10 +26,9 @@ public class Home extends JFrame implements ActionListener {
         customerDetails.addActionListener(this);
         details.add(customerDetails);
 
-        JMenuItem reservationDetails = new JMenuItem("Reservation Details");
-        details.add(reservationDetails);
 
         JMenuItem bookFlights = new JMenuItem("Book Flight");
+        bookFlights.addActionListener(this);
         details.add(bookFlights);
 
         JMenuItem journeyDetails = new JMenuItem("Journey Details");
@@ -36,12 +36,14 @@ public class Home extends JFrame implements ActionListener {
         details.add(journeyDetails);
 
         JMenuItem ticketCancellation = new JMenuItem("Cancel Ticket");
+        ticketCancellation.addActionListener(this);
         details.add(ticketCancellation);
 
         JMenu ticket = new JMenu("Ticket");
         menubar.add(ticket);
 
         JMenuItem boardingPass = new JMenuItem("Boarding Pass");
+        boardingPass.addActionListener(this);
         ticket.add(boardingPass);
 
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -58,6 +60,10 @@ public class Home extends JFrame implements ActionListener {
             new FlightsInfo();  // This opens the FlightsInfo window
         } else if(text.equals("Book Flight")) {
             new BookFlight();
+        }else if(text.equals("Boarding Pass")) {
+            new BoardingPass();
+        }else if(text.equals("Cancel Ticket")) {
+            new Cancel();
         }
         
         // Handle other menu items similarly
